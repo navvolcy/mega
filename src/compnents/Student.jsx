@@ -1,0 +1,1 @@
+//. Add the ability for a student to add self to a course, either on the existing student page or a new page.

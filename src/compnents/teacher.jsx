@@ -1,0 +1,1 @@
+//Teacher can create a course, add a student, create a TA, see all their courses, and logs.

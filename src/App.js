@@ -1,23 +1,16 @@
-import logo from './logo.svg';
+import UVUadmin from './compnents/UVUadmin';
+import UVUlogin from './compnents/UVUlogin';
 import './App.css';
-
+//Use client side routing for navigating between pages.
+//Use a state store.
+//You must have automated testing.
 function App() {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+        
+        <UVUlogin/>
+
     </div>
   );
 }
