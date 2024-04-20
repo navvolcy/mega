@@ -1,4 +1,3 @@
-import UVUadmin from './compnents/UVUadmin';
 import UVUlogin from './compnents/UVUlogin';
 import './App.css';
 //Use client side routing for navigating between pages.
