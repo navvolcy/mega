@@ -2,7 +2,7 @@ import React from 'react';
 import UVU from '../assets/UVUMascotBlack-0019.png'
 //login/signup page(s).
 //Use client side routing for navigating between pages.
-// if user click one of the checkboxs it will send them to the 
+// if user click one of the checkboxs  and puts in the correct username/password it will send them to the correct page
 const UVUlogin = () =>{ //doe for the functionaality of the page.
     
     return( 
@@ -13,8 +13,6 @@ const UVUlogin = () =>{ //doe for the functionaality of the page.
                         <img className='flex items-center' alt="Logo " src={UVU}/>
                     </div>
                         
-                        
-                   
                     <div>
                         <div className=' p-4' >
                             <label className=' p-4' ><b>Username</b></label>
@@ -34,6 +32,8 @@ const UVUlogin = () =>{ //doe for the functionaality of the page.
                             <label><b>Teacher</b></label>
                             <input className= 'mx-[15px]' type='checkbox'/>
                             <label><b>TA</b></label>
+                            <input className= 'mx-[15px]' type='checkbox'/>
+                            <label><b>Student</b></label>
                         </div>
                     </div>
 
