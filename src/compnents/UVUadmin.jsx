@@ -1,5 +1,5 @@
 import React from "react";
-import { FaAlignJustify } from "react-icons/fa";
+
 
 // Admin can create and see all courses and all student logs. Admin can create a teacher, TA, or student. Admin is "god" of the system.
 // Create/delet/view  Teachers, TA, and students -> 
@@ -19,7 +19,7 @@ const UVUadmin = () =>{
             {/*list of Teacher, TA, Student*/}
             <div className="absolute top-[15%] left-0 text-2xl italic font-serif">
                 <ul>
-                    <li >
+                    <li>
                         Teacher
                     </li>
                     <li>

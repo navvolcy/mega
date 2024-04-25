@@ -1,20 +1,16 @@
-//import UVUlogin from './compnents/UVUlogin';
-import UVUadmin from './compnents/UVUadmin';
+import * as React from "react";
+import { Admin, Resource} from 'react-admin';
+ 
+import restProvider from 'ra-data-simple-rest';
 import './App.css';
+import UVUlogin from "./compnents/UVUlogin";
 //Use client side routing for navigating between pages.
 //Use a state store.
 //You must have automated testing.
 
-function App() {
-  
-  return (
-    <div>
-      {/* <UVUlogin/> */}
-      <UVUadmin/>
+export const App = () =>(
+  // <UVUlogin/>,
+  <Admin dataProvider={restProvider('http://localhost:3000')}>
 
-      
-    </div>
-  );
-}
-
-export default App;
+  </Admin>
+);
