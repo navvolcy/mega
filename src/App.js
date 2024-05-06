@@ -1,6 +1,8 @@
 import * as React from "react";
-import { Admin, Resource} from 'react-admin';
-import restProvider from 'ra-data-simple-rest';
+import UVUlogin from "./compnents/UVUlogin";
+import UVUadmin from "./compnents/UVUadmin";
+
+
 import './App.css';
 //import UVUlogin from "./compnents/UVUlogin";
 //Use client side routing for navigating between pages.
@@ -14,10 +16,9 @@ import './App.css';
 // Each one will have a card that can be edited and links to the db  is Teacher, TA, and Student
 function App () {
   return (
-    // <UVUlogin/>,
-    <Admin dataProvider={restProvider('http://localhost:3000')}>
-      <Resource/>
-    </Admin>
+    <UVUlogin/>                        
+    //<UVUadmin/>
+    
   );
 }
 

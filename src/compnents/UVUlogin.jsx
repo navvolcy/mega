@@ -3,7 +3,9 @@ import UVU from '../assets/UVUMascotBlack-0019.png'
 //login/signup page(s).
 //Use client side routing for navigating between pages.
 // if user click one of the checkboxs  and puts in the correct username/password it will send them to the correct page
-const UVUlogin = () =>{ //doe for the functionaality of the page.
+const UVUlogin = () =>{ //does for the functionaality of the page.
+
+    
     
     return( 
         <div className="container">
@@ -15,17 +17,15 @@ const UVUlogin = () =>{ //doe for the functionaality of the page.
                         
                     <div>
                         <div className=' p-4' >
-                            <label className=' p-4' ><b>Username</b></label>
-                            <input/> 
+                            <label className=' p-4' ><b>UVU ID</b></label>
+                            <input type='text' placeholder='12345678' maxLength={8} /> 
                         </div>
                         <div >
                             <label className=' p-6'><b>Password</b></label>
-                            <input/>  
+                            <input type='password' placeholder='password'/>  
                         </div>
-                        <div>
-                            <button className=' bg-[#06110d] text-[white] cursor-pointer w-full mx-0 my-2 px-5 py-3.5 border-[none]'>login</button>
-                        </div>
-                        <div>
+                        
+                        <div className=' py-8'>
                             <input className= 'mx-[15px]' type='checkbox' />
                             <label><b>Administator</b></label>
                             <input  className= 'mx-[15px]' type='checkbox'/>
@@ -34,6 +34,11 @@ const UVUlogin = () =>{ //doe for the functionaality of the page.
                             <label><b>TA</b></label>
                             <input className= 'mx-[15px]' type='checkbox'/>
                             <label><b>Student</b></label>
+                        </div>
+                        <div>
+                            <button className=' bg-[#06110d] text-[white] cursor-pointer w-full mx-0 my-2 px-5 py-3.5 border-[none] hover:bg-green-950 active:bg-green-900 focus:outline-none focus:ring focus:ring-green-700 rounded-full'>
+                                login
+                            </button>
                         </div>
                     </div>
 

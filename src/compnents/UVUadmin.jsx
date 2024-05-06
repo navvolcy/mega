@@ -18,17 +18,18 @@ const UVUadmin = () =>{
             </div>
             {/*list of Teacher, TA, Student*/}
             <div className="absolute top-[15%] left-0 text-2xl italic font-serif">
-                <ul>
-                    <li>
-                        Teacher
-                    </li>
-                    <li>
-                        TA
-                    </li>
-                    <li>
-                        Student
-                    </li>
-                </ul>
+                {/*Teacher form that can do CRUD */}
+                <div className="p-5">
+                    <form>
+                        <label><b></b></label>
+                        <input/>
+
+                    </form>
+                </div>
+                <div>
+
+                </div>
+                
             </div>
 
         </div>
