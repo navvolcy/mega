@@ -1,8 +1,6 @@
 import * as React from "react";
 import UVUlogin from "./compnents/UVUlogin";
-import UVUadmin from "./compnents/UVUadmin";
-
-
+import {BrowserRouter as Router, Routes, Route, Redirect} from "react-router-dom";
 import './App.css';
 //import UVUlogin from "./compnents/UVUlogin";
 //Use client side routing for navigating between pages.
@@ -15,9 +13,13 @@ import './App.css';
 // Create/delete/view courses & log 
 // Each one will have a card that can be edited and links to the db  is Teacher, TA, and Student
 function App () {
-  return (
-    <UVUlogin/>                        
-    //<UVUadmin/>
+  return (                      
+    <Router>
+      <Routes>
+        <Route exact path="/UVUlogin"  element={<UVUlogin/>}/>
+        <Redirect from="/" to="/UVUlogin"/>
+      </Routes>
+    </Router>
     
   );
 }

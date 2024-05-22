@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 // npm install axios
 import axios from 'axios'
 import UVU from '../assets/UVUMascotBlack-0019.png'
-import { NavLink } from 'react-router-dom'
+
 //login/signup page(s).
 //Use client side routing for navigating between pages.
 // if user click one of the checkboxs  and puts in the correct username/password it will send them to the correct page
