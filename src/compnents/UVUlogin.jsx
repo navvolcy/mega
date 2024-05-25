@@ -7,11 +7,24 @@ import UVU from '../assets/UVUMascotBlack-0019.png';
 
 const UVUlogin = () =>{ //does for the functionality of the page.
     const [isLogin, setIsLogin] = useState(false);
+    const [uvuId, setUvuId] = useState('');
+    const [uvupassword, setUvupassword]= useState('');
 
+    const handleUvuInput = event =>{
+        setUvuId(event.target.value);
+    }
+
+    const handlePassword = event => {
+        setUvupassword(event.target.value);
+    }
+
+  
     const handleLogin = () =>{
         // Perform authentication logic here
        
         //if the username and password match go to the admin page 
+        
+       
         
          
       
@@ -31,11 +44,11 @@ const UVUlogin = () =>{ //does for the functionality of the page.
                     <div>
                         <div className=' p-4' >
                             <label className=' p-4' ><b>UVU ID</b></label>
-                            <input type='text' placeholder='12345678' maxLength={8} value={''} /> 
+                            <input type='text' placeholder='12345678' maxLength={8} value={uvuId}  onChange={handleUvuInput}/> 
                         </div>
                         <div >
                             <label className=' p-6'><b>Password</b></label>
-                            <input type='password' placeholder='password' value={''}/>  
+                            <input type='password' placeholder='password' value={uvupassword} on onChange={handlePassword}/>  
                         </div>
                         
                         <div className=' py-8'>
