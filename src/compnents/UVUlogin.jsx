@@ -1,5 +1,6 @@
 import React, { useState } from 'react'; 
 import UVU from '../assets/UVUMascotBlack-0019.png';
+import { useNavigate } from 'react-router-dom';
 
 //login/signup page(s).
 //Use client side routing for navigating between pages.
@@ -21,13 +22,14 @@ const UVUlogin = () =>{ //does for the functionality of the page.
   
     const handleLogin = () =>{
         // Perform authentication logic here
-       
+        const navigate = useNavigate();
         //if the username and password match go to the admin page 
         if( handleUvuInput !== "10611913" && handlePassword !== "21296Nav0!"){
             console.log("login failed")
             setIsLogin(false)
         }else{
             setIsLogin(true);
+            navigate('/UVUadmin')
         }
        
     }
@@ -62,7 +64,7 @@ const UVUlogin = () =>{ //does for the functionality of the page.
                         </div>
                         <div>
                             <button className=' bg-[#06110d] text-[white] cursor-pointer w-full mx-0 my-2 px-5 py-3.5 border-[none] hover:bg-green-950 active:bg-green-900 focus:outline-none focus:ring focus:ring-green-700 rounded-full'
-                            onClick={handleLogin}>
+                            onClick={handleLogin} value={isLogin}>
                                 login
                             </button>
                         </div>
