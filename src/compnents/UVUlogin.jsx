@@ -1,47 +1,25 @@
 import React, { useState } from 'react'; 
-// npm install axios
-import axios from 'axios'
-import UVU from '../assets/UVUMascotBlack-0019.png'
+import UVU from '../assets/UVUMascotBlack-0019.png';
 
 //login/signup page(s).
 //Use client side routing for navigating between pages.
 // if user click one of the checkboxs  and puts in the correct username/password it will send them to the correct page
 
 const UVUlogin = () =>{ //does for the functionality of the page.
+    const [isLogin, setIsLogin] = useState(false);
 
-    const [uvuId, setUvuId] = useState('')
-    const [data, setData] = useState(undefined)
+    const handleLogin = () =>{
+        // Perform authentication logic here
+       
+        //if the username and password match go to the admin page 
+        
+         
+      
+        
+        setIsLogin(true);
 
-    const handleUvuId = (event) => { 
-        console.log(event.target.value)
-        setUvuId(event.target.value)
     }
 
-    const handleLogin = async (event) => {
-        event.preventDefault()
-        const ditto = await axios.get('https://pokeapi.co/api/v2/pokemon/ditto')
-        setData(ditto)
-        console.log(ditto)
-
-        /*
-         const authenticated = await axios.post('https://myapi//login', { 
-            body: { 
-                username: uvuId,
-                password: password
-                userType: userType
-            }
-         })
-         
-         (true or false) --> authenticated.data.isLoggedIn
-         if(!authenticated.data.isLoggedIn) { 
-            // show error to user showing maybe a toast (https://www.npmjs.com/package/react-toastify?activeTab=readme)
-                "username or password is incorrect" 
-         }
-         // keep going --> navigate to new page
-        
-        */
-    }  
-    
     return( 
         <div className="container">
             <div className='page details'>
@@ -53,19 +31,13 @@ const UVUlogin = () =>{ //does for the functionality of the page.
                     <div>
                         <div className=' p-4' >
                             <label className=' p-4' ><b>UVU ID</b></label>
-                            <input type='text' placeholder='12345678' maxLength={8} onChange={handleUvuId} /> 
+                            <input type='text' placeholder='12345678' maxLength={8} value={''} /> 
                         </div>
                         <div >
                             <label className=' p-6'><b>Password</b></label>
-                            <input type='password' placeholder='password'/>  
+                            <input type='password' placeholder='password' value={''}/>  
                         </div>
                         
-                        {/* 
-                        use a drop down might be better
-                        because you can't be all or multiply 
-                        entities e.g ( I can't be a teacher and student)
-                        */
-                        }
                         <div className=' py-8'>
                             <input className= 'mx-[15px]' type='checkbox' />
                             <label><b>Administator</b></label>
@@ -84,7 +56,7 @@ const UVUlogin = () =>{ //does for the functionality of the page.
                         </div>
                     </div>
                 </form>
-                {JSON.stringify(data)}
+               
             </div>
         </div>
     )
