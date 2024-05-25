@@ -1,0 +1,13 @@
+{
+    "login":[
+        {
+            "uvuId": "20222222",
+            "password":"21222222",
+            "userType": "Admin"
+        }
+
+    ],
+    "signup":[
+
+    ]
+}
