@@ -23,14 +23,13 @@ const UVUlogin = () =>{ //does for the functionality of the page.
         // Perform authentication logic here
        
         //if the username and password match go to the admin page 
-        
+        if( handleUvuInput !== "10611913" && handlePassword !== "21296Nav0!"){
+            console.log("login failed")
+            setIsLogin(false)
+        }else{
+            setIsLogin(true);
+        }
        
-        
-         
-      
-        
-        setIsLogin(true);
-
     }
 
     return( 
