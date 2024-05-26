@@ -1,12 +1,9 @@
 import React from "react";
 
-
 // Admin can create and see all courses and all student logs. Admin can create a teacher, TA, or student. Admin is "god" of the system.
 // Create/delet/view  Teachers, TA, and students -> 
 // Create/delete/view courses & log 
 // Each one will have a card that can be edited and links to the db  is Teacher, TA, and Student
-
-
 
 const UVUadmin = () =>{
 

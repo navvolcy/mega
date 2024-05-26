@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import UVU from '../assets/UVUMascotBlack-0019.png';
 import { useNavigate } from 'react-router-dom';
 
-
-
 //login/signup page(s).
 //Use client side routing for navigating between pages.
 // if user click one of the checkboxs  and puts in the correct username/password it will send them to the correct page
@@ -14,7 +12,7 @@ const UVUlogin = () =>{ //does for the functionality of the page.
     const [uvupassword, setUvupassword]= useState('');
     const navigate = useNavigate();
 
-
+//dummy object.
     const Admin ={
         id: "12345678",
         password:"87654321"
@@ -43,13 +41,9 @@ const UVUlogin = () =>{ //does for the functionality of the page.
 
     }
      
-
     const handleLogin = () =>{
         
             navigate('/UVUadmin')
-           
-       //value={uvuId}  onChange={handleUvuInput}
-       //value={uvupassword} ononChange={handleUvuInput}
     }
 
     return( 
