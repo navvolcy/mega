@@ -14,31 +14,40 @@ const UVUlogin = () =>{ //does for the functionality of the page.
     const [uvupassword, setUvupassword]= useState('');
     const navigate = useNavigate();
 
+
+    const Admin ={
+        id: "12345678",
+        password:"87654321"
+    }
+
     const handleUvuInput = event =>{
         return setUvuId(event.target.value);
-        // console.log(setUvuId , "id");
+       
     }
 
     const handlePassword = event => {
         return setUvupassword(event.target.value);
-        // console.log(setUvupassword, "pw");
+        
     }
 
-    const handleLogin = (e) =>{
-        // Perform authentication logic here
-        
-        //if the username and password match go to the admin page 
-        // if( handleUvuInput !== "10611913" && handlePassword !== "21296Nav"){
+    const authenticate = (e) =>{
+        if ( uvuId === Admin.id && uvupassword === Admin.password){
+            handleLogin(e);
+        }
+        else{
+            console.log("login failed");
+            console.log('uvuID:', uvuId);
+            console.log('password:', uvupassword);
+            e.preventDefault()
+        }
+
+    }
+     
+
+    const handleLogin = () =>{
         
             navigate('/UVUadmin')
            
-        // }else{
-            console.log('uvuID:', uvuId);
-            console.log('password:', uvupassword);
-            console.log("login failed" )
-            e.preventDefault();
-           
-
        //value={uvuId}  onChange={handleUvuInput}
        //value={uvupassword} ononChange={handleUvuInput}
     }
@@ -46,14 +55,14 @@ const UVUlogin = () =>{ //does for the functionality of the page.
     return( 
         <div className="container">
             <div className='page details'>
-                <form onSubmit={handleLogin}>
+                <form onSubmit={authenticate}>
                     <div className='logo max-w-screen-lg mx-auto pb-10'>
                         <img className='flex items-center' alt="Logo " src={UVU}/>
                     </div>
                         
                     <div>
                         <div className=' p-4' >
-                            <label className=' p-4' ><b>UVU ID</b></label>
+                            <label className=' p-7' ><b>UVU ID</b></label>
                             <input type='text' placeholder='12345678' maxLength={8} value={uvuId} onChange={handleUvuInput}/> 
                         </div>
                         <div >
@@ -61,21 +70,21 @@ const UVUlogin = () =>{ //does for the functionality of the page.
                             <input type='text' placeholder='password'  maxLength={8} value={uvupassword} onChange={handlePassword } />  
                         </div>
                         
-                        <div className=' py-8'>
-                            <input className= 'mx-[15px]' type='checkbox' />
-                            <label><b>Administator</b></label>
-                            <input  className= 'mx-[15px]' type='checkbox'/>
-                            <label><b>Teacher</b></label>
-                            <input className= 'mx-[15px]' type='checkbox'/>
-                            <label><b>TA</b></label>
-                            <input className= 'mx-[15px]' type='checkbox'/>
-                            <label><b>Student</b></label>
+                        <div className='px-32 py-8'>
+                            <select>
+                                <option>Account type</option>
+                                <option>Administator</option>
+                                <option>Teacher</option>
+                                <option>TA</option>
+                                <option>Student</option>
+                            </select>
                         </div>
                         <div>
                             <button className=' bg-[#06110d] text-[white] cursor-pointer w-full mx-0 my-2 px-5 py-3.5 border-[none] hover:bg-green-950 active:bg-green-900 focus:outline-none focus:ring focus:ring-green-700 rounded-full'
                              type="submit">
                                 Login
                             </button>
+                            
                         </div>
                     </div>
                 </form>
