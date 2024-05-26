@@ -1,7 +1,8 @@
 import * as React from "react";
 import UVUlogin from "./compnents/UVUlogin";
+import UVUadmin from "./compnents/UVUadmin";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
-import './App.css';
+
 //import UVUlogin from "./compnents/UVUlogin";
 //Use client side routing for navigating between pages.
 //Use a state store.
@@ -14,7 +15,13 @@ import './App.css';
 // Each one will have a card that can be edited and links to the db  is Teacher, TA, and Student
 function App () {
   return (                      
-    <UVUlogin/>
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<UVUlogin/>}/>
+        <Route path="/" element={<UVUadmin/>}/>
+      </Routes>
+      
+    </Router>
     
   );
 }

@@ -1,37 +1,40 @@
-import React, { useState } from 'react'; 
+// import React, { useState } from 'react'; 
 import UVU from '../assets/UVUMascotBlack-0019.png';
 import { useNavigate } from 'react-router-dom';
+
 
 //login/signup page(s).
 //Use client side routing for navigating between pages.
 // if user click one of the checkboxs  and puts in the correct username/password it will send them to the correct page
 
 const UVUlogin = () =>{ //does for the functionality of the page.
-    const [isLogin, setIsLogin] = useState(false);
-    const [uvuId, setUvuId] = useState('');
-    const [uvupassword, setUvupassword]= useState('');
+    //const [isLogin, setIsLogin] = useState(false);
+    // const [uvuId, setUvuId] = useState('');
+    // const [uvupassword, setUvupassword]= useState('');
+    const navigate = useNavigate();
 
-    const handleUvuInput = event =>{
-        setUvuId(event.target.value);
-    }
+    // const handleUvuInput = event =>{
+    //     setUvuId(event.target.value);
+    // }
 
-    const handlePassword = event => {
-        setUvupassword(event.target.value);
-    }
+    // const handlePassword = event => {
+    //     setUvupassword(event.target.value);
+    // }
 
   
     const handleLogin = () =>{
         // Perform authentication logic here
-        const navigate = useNavigate();
-        //if the username and password match go to the admin page 
-        if( handleUvuInput !== "10611913" && handlePassword !== "21296Nav0!"){
-            console.log("login failed")
-            setIsLogin(false)
-        }else{
-            setIsLogin(true);
-            navigate('/UVUadmin')
-        }
        
+        //if the username and password match go to the admin page 
+        // if( handleUvuInput !== "10611913" && handlePassword !== "21296Nav0!"){
+        //     console.log("login failed")
+           
+        // }else{}
+          
+            navigate('/UVUadmin')
+        
+       //value={uvuId}  onChange={handleUvuInput}
+       //value={uvupassword} on onChange={handlePassword}/
     }
 
     return( 
@@ -45,11 +48,11 @@ const UVUlogin = () =>{ //does for the functionality of the page.
                     <div>
                         <div className=' p-4' >
                             <label className=' p-4' ><b>UVU ID</b></label>
-                            <input type='text' placeholder='12345678' maxLength={8} value={uvuId}  onChange={handleUvuInput}/> 
+                            <input type='text' placeholder='12345678' maxLength={8} /> 
                         </div>
                         <div >
                             <label className=' p-6'><b>Password</b></label>
-                            <input type='password' placeholder='password' value={uvupassword} on onChange={handlePassword}/>  
+                            <input type='password' placeholder='password' />  
                         </div>
                         
                         <div className=' py-8'>
@@ -64,7 +67,7 @@ const UVUlogin = () =>{ //does for the functionality of the page.
                         </div>
                         <div>
                             <button className=' bg-[#06110d] text-[white] cursor-pointer w-full mx-0 my-2 px-5 py-3.5 border-[none] hover:bg-green-950 active:bg-green-900 focus:outline-none focus:ring focus:ring-green-700 rounded-full'
-                            onClick={handleLogin} value={isLogin}>
+                            onClick={handleLogin} >
                                 login
                             </button>
                         </div>
