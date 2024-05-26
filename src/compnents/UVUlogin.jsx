@@ -6,16 +6,18 @@ import { useNavigate } from 'react-router-dom';
 //Use client side routing for navigating between pages.
 // if user click one of the checkboxs  and puts in the correct username/password it will send them to the correct page
 
-const UVUlogin = () =>{ //does for the functionality of the page.
+const UVUlogin = () =>{ 
     
     const [uvuId,setUvuId] = useState('');
     const [uvupassword, setUvupassword]= useState('');
+    const [uvuType, setUvuPassword] = useState('');
     const navigate = useNavigate();
 
 //dummy object.
     const Admin ={
-        id: "12345678",
-        password:"87654321"
+        id:"12345678",
+        password:"87654321",
+        type:"Administator"
     }
 
     const handleUvuInput = event =>{
@@ -27,15 +29,20 @@ const UVUlogin = () =>{ //does for the functionality of the page.
         return setUvupassword(event.target.value);
         
     }
+    
+    const handleType = event =>{
+        return setUvuPassword(event.target.value);
+    }
 
     const authenticate = (e) =>{
-        if ( uvuId === Admin.id && uvupassword === Admin.password){
+        if ( uvuId === Admin.id && uvupassword === Admin.password && uvuType === Admin.type){
             handleLogin(e);
         }
         else{
             console.log("login failed");
             console.log('uvuID:', uvuId);
             console.log('password:', uvupassword);
+            console.log('type:', uvuType);
             e.preventDefault()
         }
 
@@ -65,12 +72,12 @@ const UVUlogin = () =>{ //does for the functionality of the page.
                         </div>
                         
                         <div className='px-32 py-8'>
-                            <select>
+                            <select onChange={handleType}>
                                 <option>Account type</option>
-                                <option>Administator</option>
-                                <option>Teacher</option>
-                                <option>TA</option>
-                                <option>Student</option>
+                                <option value={"Administator"}>Administator</option>
+                                <option value={"Teacher"}>Teacher</option>
+                                <option value={"TA"}>TA</option>
+                                <option value={"Student"}>Student</option>
                             </select>
                         </div>
                         <div>

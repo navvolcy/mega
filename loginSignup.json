@@ -3,7 +3,22 @@
         {
             "uvuId": "20222222",
             "password":"21222222",
-            "userType": "Admin"
+            "Type": "Administator"
+        },
+        {
+            "uvuId": "30333333",
+            "password":"31333333",
+            "Type": "Teacher"
+        },
+        {
+            "uvuId": "40444444",
+            "password":"41444444",
+            "Type": "TA"
+        },
+        {
+            "uvuId": "10111111",
+            "password":"11111111",
+            "Type": "Student"
         }
 
     ],
