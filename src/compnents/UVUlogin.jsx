@@ -3,12 +3,13 @@ import UVU from '../assets/UVUMascotBlack-0019.png';
 import { useNavigate } from 'react-router-dom';
 
 
+
 //login/signup page(s).
 //Use client side routing for navigating between pages.
 // if user click one of the checkboxs  and puts in the correct username/password it will send them to the correct page
 
 const UVUlogin = () =>{ //does for the functionality of the page.
-    const [uvuIdsLogin, setIsLogin] = useState(false);
+    
     const [uvuId,setUvuId] = useState('');
     const [uvupassword, setUvupassword]= useState('');
     const navigate = useNavigate();
@@ -27,17 +28,17 @@ const UVUlogin = () =>{ //does for the functionality of the page.
         // Perform authentication logic here
         
         //if the username and password match go to the admin page 
-        if( handleUvuInput === "1061191" && handlePassword === "21296"){
-            console.log("login failed")
-            setIsLogin(true);
+        // if( handleUvuInput !== "10611913" && handlePassword !== "21296Nav"){
+        
             navigate('/UVUadmin')
            
-        }else{
-
-            console.log("login failed")
+        // }else{
+            console.log('uvuID:', uvuId);
+            console.log('password:', uvupassword);
+            console.log("login failed" )
             e.preventDefault();
            
-    }
+
        //value={uvuId}  onChange={handleUvuInput}
        //value={uvupassword} ononChange={handleUvuInput}
     }
@@ -45,7 +46,7 @@ const UVUlogin = () =>{ //does for the functionality of the page.
     return( 
         <div className="container">
             <div className='page details'>
-                <form onSubmit={handleLogin}  value={uvuIdsLogin}>
+                <form onSubmit={handleLogin}>
                     <div className='logo max-w-screen-lg mx-auto pb-10'>
                         <img className='flex items-center' alt="Logo " src={UVU}/>
                     </div>
@@ -57,7 +58,7 @@ const UVUlogin = () =>{ //does for the functionality of the page.
                         </div>
                         <div >
                             <label className=' p-6'><b>Password</b></label>
-                            <input type='password' placeholder='password' value={uvupassword} onChange={handlePassword } />  
+                            <input type='text' placeholder='password'  maxLength={8} value={uvupassword} onChange={handlePassword } />  
                         </div>
                         
                         <div className=' py-8'>
