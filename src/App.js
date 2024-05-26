@@ -18,7 +18,7 @@ function App () {
     <Router>
       <Routes>
         <Route exact path="/" element={<UVUlogin/>}/>
-        <Route path="/" element={<UVUadmin/>}/>
+        <Route path="/UVUadmin" element={<UVUadmin/>}/>
       </Routes>
       
     </Router>
