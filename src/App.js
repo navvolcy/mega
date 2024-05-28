@@ -1,6 +1,7 @@
 import * as React from "react";
 import UVUlogin from "./compnents/UVUlogin";
 import UVUadmin from "./compnents/UVUadmin";
+import Teacher from "./compnents/Teacher";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
 //import UVUlogin from "./compnents/UVUlogin";
@@ -19,6 +20,7 @@ function App () {
       <Routes>
         <Route exact path="/" element={<UVUlogin/>}/>
         <Route path="/UVUadmin" element={<UVUadmin/>}/>
+        <Route path="/Teacher"  element={<Teacher/>}/>
       </Routes>
       
     </Router>
