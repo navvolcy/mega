@@ -62,17 +62,17 @@ const UVUlogin = () =>{
                     </div>
                         
                     <div>
-                        <div className=' p-4' >
+                        <div className=' p-4 text-2xl italic font-serif' >
                             <label className=' p-7' ><b>UVU ID</b></label>
                             <input type='text' placeholder='12345678' maxLength={8} value={uvuId} onChange={handleUvuInput}/> 
                         </div>
                         <div >
-                            <label className=' p-6'><b>Password</b></label>
+                            <label className=' p-6 text-2xl italic font-serif'><b>Password</b></label>
                             <input type='text' placeholder='password'  maxLength={8} value={uvupassword} onChange={handlePassword } />  
                         </div>
                         
-                        <div className='px-32 py-8'>
-                            <select onChange={handleType}>
+                        <div className='px-32 py-8 '>
+                            <select className="text-2xl italic font-serif mx-16" onChange={handleType}>
                                 <option>Account type</option>
                                 <option value={"Administator"}>Administator</option>
                                 <option value={"Teacher"}>Teacher</option>
