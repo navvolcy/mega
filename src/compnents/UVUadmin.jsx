@@ -19,10 +19,10 @@ const UVUadmin = () =>{
             
             
             {/*list of Teacher, TA, Student*/}
-            <div className=" text-2xl italic font-serif">
+            <div className="text-2xl italic font-serif ">
                 {/*Teacher form that can do CRUD */}
                
-                    <form className="font-thin text-2xl italic font-serif   "> 
+                    <form className="font-thin text-2xl italic font-serif"> 
                         <label><b> ID: </b></label>
                         <input type='text' placeholder='12345678' maxLength={8}/>
                         <div>
@@ -33,10 +33,10 @@ const UVUadmin = () =>{
                                 <option value={"Student"}>Student</option>
                             </select>
                             </div>
-                        <button className=" bg-[#06110d] text-[white] cursor-pointer w-full mx-0 my-2 px-5 py-3.5 border-[none] hover:bg-green-950 active:bg-green-900 focus:outline-none focus:ring focus:ring-green-700 rounded-full">Search</button>
+                        <button className=" text-2xl italic font-serif bg-[#06110d] text-[white] cursor-pointer w-full mx-0 my-2 px-5 py-3.5 border-[none] hover:bg-green-950 active:bg-green-900 focus:outline-none focus:ring focus:ring-green-700 rounded-full">Search</button>
 
                     </form>
-                    <button className=" bg-[#06110d] text-[white] cursor-pointer w-full mx-0 my-2 px-5 py-3.5 border-[none] hover:bg-green-950 active:bg-green-900 focus:outline-none focus:ring focus:ring-green-700 rounded-full">Create</button>
+                    <button className="text-2xl italic font-serif bg-[#06110d] text-[white] cursor-pointer w-full mx-0 my-2 px-5 py-3.5 border-[none] hover:bg-green-950 active:bg-green-900 focus:outline-none focus:ring focus:ring-green-700 rounded-full">Create</button>
                
 
             </div>
