@@ -22,11 +22,11 @@ const UVUadmin = () =>{
             <div className="text-2xl italic font-serif ">
                 {/*Teacher form that can do CRUD */}
                
-                    <form className="font-thin text-2xl italic font-serif"> 
+                    <form className="font-thin text-2xl italic font-serif "> 
                         <label><b> ID: </b></label>
                         <input type='text' placeholder='12345678' maxLength={8}/>
                         <div>
-                        <select className="font-thin text-2xl italic font-serif  mx-16 my-2 ">
+                        <select className="font-thin text-2xl italic font-serif  mx-16 my-5 ">
                                 <option>Account type</option>
                                 <option value={"Teacher"}>Teacher</option>
                                 <option value={"TA"}>TA</option>
