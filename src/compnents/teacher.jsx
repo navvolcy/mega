@@ -2,6 +2,8 @@
 import React from "react";
 
 const Teacher =() =>{
+
+    
     return(
         <div>
             <div className=" w-full h-[80px] flex justify-between  px-4">

@@ -1,6 +1,6 @@
 import React from "react";
-import Create from "./subComponents/Create";
-import Search from "./subComponents/Search";
+import Button from "./subComponents/Button";
+
 
 // Admin can create and see all courses and all student logs. Admin can create a teacher, TA, or student. Admin is "god" of the system.
 // Create/delet/view  Teachers, TA, and students -> 
@@ -34,10 +34,10 @@ const UVUadmin = () =>{
                                 <option value={"Student"}>Student</option>
                         </select>
                             </div>
-                       <Search/>
+                       <Button name={"Search"} />
 
                     </form>
-                    <Create/>
+                    <Button name={"Create"}/>
                
 
             </div>

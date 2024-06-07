@@ -20,6 +20,13 @@ const UVUlogin = () =>{
         type:"Administator"
     }
 
+    const teacher={
+        id:"1234567",
+        password:"8765432",
+        type:"Teacher" 
+    }
+    
+
     const handleUvuInput = event =>{
         return setUvuId(event.target.value);
        
@@ -38,6 +45,10 @@ const UVUlogin = () =>{
         if ( uvuId === Admin.id && uvupassword === Admin.password && uvuType === Admin.type){
             handleLogin(e);
         }
+        if(uvuId === teacher.id && uvupassword === teacher.password && uvuType === 
+            teacher.type){
+                handleLogin(e) 
+            }
         else{
             console.log("login failed");
             console.log('uvuID:', uvuId);
@@ -51,6 +62,7 @@ const UVUlogin = () =>{
     const handleLogin = () =>{
         
             navigate('/UVUadmin')
+            navigate('/Teacher')
     }
 
     return( 
