@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+Replace the vanilla JS or jQueryLite with React (or an equivalent client framework).
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Must use at least two React (or equivalent) components.
 
-## Available Scripts
+To your existing page,
 
-In the project directory, you can run:
+   A. Add login/signup page(s).
 
-### `npm start`
+    
+The roles are admin, teacher, TA, and student.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+    
+Admin can create and see all courses and all student logs. Admin can create a teacher, TA, or student. Admin is "god" of the system.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+    
+Teacher can create a course, add a student, create a TA, see all their courses, and logs.
 
-### `npm test`
+    
+TA can see all their courses, and logs. TA can create a student.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    
+A student can only see their own courses, and logs.
 
-### `npm run build`
+  B. What you have in previous practicums is the student page.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    
+Add an admin page.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    
+Add a teacher page.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    
+Add a TA page.
 
-### `npm run eject`
+    
+Add the ability for a student to add self to a course, either on the existing student page or a new page.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+  D. Use client side routing for navigating between pages.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  E. Use a state store.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+  F. You are responsible for a decent GUI design and UX.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+  G. Admin, teacher, TA, student must be able to add a graphic.
 
-## Learn More
+You must have automated testing.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+You must host it somewhere that's not your laptop. No localhost. No 127.0.0.1. No local IP address.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Use CockroachDB (SQL, edge) or MongoDB (NoSQL).
 
-### Code Splitting
+Add multitenants,
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+    A. UVU has URL, and U has another URL.
 
-### Analyzing the Bundle Size
+    B. UVU has UVU theme, and U has UofU theme.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    C. UVU admin/teacher/TA/student can't see anything of the U, and vice versa.
+Every thing that need to be done to complete the project
