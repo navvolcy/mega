@@ -3,7 +3,7 @@ const db = require('./db.json')
 const app = express()
 const port = 3000
 
-app.get('/api/v1/login/:uvuId/:password/:uvuType', (req, res) => {
+app.get('/login/:uvuId/:password/:uvuType', (req, res) => {
 
   const uvuId = req.params.uvuId
   const password = req.params.password
@@ -13,7 +13,8 @@ app.get('/api/v1/login/:uvuId/:password/:uvuType', (req, res) => {
             .filter (login => login.password == password)
             .filter(login => login.Type === uvuType )
             .map(function(login){
-              return [login.uvuId, login.password, login.Type]
+              //return [login.uvuId, login.password, login.Type]
+              console.log("server")
               
             })
   res.send(logins)

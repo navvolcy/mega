@@ -11,21 +11,29 @@ const UVUlogin = () =>{
     const [uvuId,setUvuId] = useState('');
     const [uvupassword, setUvupassword]= useState('');
     const [uvuType, setType] = useState('Account type');
-    const navigate = useNavigate();
+   // const navigate = useNavigate();
+   
 
     // use the database here
    
 
         
             
-        async function userLogin () {
-            fetch('/api/v1/login')
+        async function userLogin (e) {
+            console.log("here")
+            fetch(`/login/${uvuId}/${uvupassword}/${uvuType}`)
             .then(response => response.json)
-            .then(data =>{
-                if (uvuId === data.uvuId && uvupassword === data.password && uvuType === data.Type){
-                    navigate('/UVUadmin')
+            .then(data =>{ 
+                console.log(uvuId, 'ID')
+                console.log(data, "data")
+    
+                // if (uvuId === data.uvuId && uvupassword === data.password && uvuType === data.Type){
                     
-                }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+                //     navigate('/UVUadmin')
+                     e.preventDefault()
+
+                    
+                // }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
             })
         }
       
