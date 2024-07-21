@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; 
+import React, {useState} from 'react'; 
 import UVU from '../assets/UVUMascotBlack-0019.png';
 import { useNavigate } from 'react-router-dom';
 
@@ -10,65 +10,37 @@ const UVUlogin = () =>{
     
     const [uvuId,setUvuId] = useState('');
     const [uvupassword, setUvupassword]= useState('');
-    const [uvuType, setUvuPassword] = useState('');
+    const [uvuType, setType] = useState('Account type');
     const navigate = useNavigate();
 
-//dummy object.
-    const Admin ={
-        id:"12345678",
-        password:"87654321",
-        type:"Administator"
-    }
+    // use the database here
+   
 
-    const teacher={
-        id:"1234567",
-        password:"8765432",
-        type:"Teacher" 
-    }
-    
-
-    const handleUvuInput = event =>{
-        return setUvuId(event.target.value);
-       
-    }
-
-    const handlePassword = event => {
-        return setUvupassword(event.target.value);
         
-    }
-    
-    const handleType = event =>{
-        return setUvuPassword(event.target.value);
-    }
-
-    const authenticate = (e) =>{
-        if ( uvuId === Admin.id && uvupassword === Admin.password && uvuType === Admin.type){
-            handleLogin(e);
+            
+        async function userLogin () {
+            fetch('/api/v1/login')
+            .then(response => response.json)
+            .then(data =>{
+                if (uvuId === data.uvuId && uvupassword === data.password && uvuType === data.Type){
+                    navigate('/UVUadmin')
+                    
+                }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+            })
         }
-        if(uvuId === teacher.id && uvupassword === teacher.password && uvuType === 
-            teacher.type){
-                handleLogin(e) 
-            }
-        else{
-            console.log("login failed");
-            console.log('uvuID:', uvuId);
-            console.log('password:', uvupassword);
-            console.log('type:', uvuType);
-            e.preventDefault()
-        }
+      
 
-    }
-     
-    const handleLogin = () =>{
+    // const handleLogin = () =>{
         
-            navigate('/UVUadmin')
-            navigate('/Teacher')
-    }
+    //         navigate('/UVUadmin')
+    //         navigate('/Teacher')
+    //         navigate('/Student')
+    // }
 
     return( 
         <div className="container">
             <div className='page details'>
-                <form onSubmit={authenticate}>
+                <form onSubmit={userLogin}>
                     <div className='logo max-w-screen-lg mx-auto pb-10'>
                         <img className='flex items-center' alt="Logo " src={UVU}/>
                     </div>
@@ -76,16 +48,16 @@ const UVUlogin = () =>{
                     <div>
                         <div className=' p-4 text-2xl italic font-serif' >
                             <label className=' p-7' ><b>UVU ID</b></label>
-                            <input type='text' placeholder='12345678' maxLength={8} value={uvuId} onChange={handleUvuInput}/> 
+                            <input type='text' placeholder='12345678' maxLength={8} value={uvuId} onChange={e=> {setUvuId(e.target.value)}}/> 
                         </div>
                         <div >
                             <label className=' p-6 text-2xl italic font-serif'><b>Password</b></label>
-                            <input type='text' placeholder='password'  maxLength={8} value={uvupassword} onChange={handlePassword } />  
+                            <input type='text' placeholder='password'  maxLength={8} value={uvupassword} onChange={e=> {setUvupassword(e.target.value) }} />  
                         </div>
                         
                         <div className='px-32 py-8 '>
-                            <select className="text-2xl italic font-serif mx-16" onChange={handleType}>
-                                <option>Account type</option>
+                            <select className="text-2xl italic font-serif mx-16" value= {uvuType} onChange={e=> {setType(e.target.value)}}>
+                                <option>Account Type</option>
                                 <option value={"Administator"}>Administator</option>
                                 <option value={"Teacher"}>Teacher</option>
                                 <option value={"TA"}>TA</option>
@@ -97,10 +69,10 @@ const UVUlogin = () =>{
                              type="submit">
                                 Login
                             </button>
-                            <button className='text-2xl italic font-serif bg-[#06110d] text-[white] cursor-pointer w-full mx-0 my-2 px-5 py-3.5 border-[none] hover:bg-green-950 active:bg-green-900 focus:outline-none focus:ring focus:ring-green-700 rounded-full'
+                            {/* <button className='text-2xl italic font-serif bg-[#06110d] text-[white] cursor-pointer w-full mx-0 my-2 px-5 py-3.5 border-[none] hover:bg-green-950 active:bg-green-900 focus:outline-none focus:ring focus:ring-green-700 rounded-full'
                              type="submit">
                                 Sign up
-                            </button>
+                            </button> */}
                         </div>
                     </div>
                 </form>

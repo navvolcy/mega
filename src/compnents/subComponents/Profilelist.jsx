@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import Card from "./Card";
 import Profile from "./Profile";
 
-class Profilelist extends Component {
-    render(){
+const Profilelist = () => {
+    
         return(
             <div>
                 <Card>
@@ -11,7 +11,7 @@ class Profilelist extends Component {
                 </Card>
             </div>
         )
-    }
+    
 }
 
 export default Profilelist;
