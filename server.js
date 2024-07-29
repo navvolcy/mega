@@ -13,10 +13,11 @@ app.get('/login/:uvuId/:password/:uvuType', (req, res) => {
             .filter (login => login.password == password)
             .filter(login => login.Type === uvuType )
             .map(function(login){
-              //return [login.uvuId, login.password, login.Type]
-              console.log("server")
+              return [login.uvuId, login.password, login.Type]
+              
               
             })
+  //console.log("logins", logins)
   res.send(logins)
 })
 

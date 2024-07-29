@@ -11,7 +11,7 @@ const UVUlogin = () =>{
     const [uvuId,setUvuId] = useState('');
     const [uvupassword, setUvupassword]= useState('');
     const [uvuType, setType] = useState('Account type');
-   // const navigate = useNavigate();
+   const navigate = useNavigate();
    
 
     // use the database here
@@ -21,18 +21,16 @@ const UVUlogin = () =>{
             
         async function userLogin (e) {
             console.log("here")
+            e.preventDefault();
             fetch(`/login/${uvuId}/${uvupassword}/${uvuType}`)
-            .then(response => response.json)
-            .then(data =>{ 
-                console.log(uvuId, 'ID')
-                console.log(data, "data")
+            .then((res)=> {return res.json()})
+            .then((data) =>{ 
+                
+                console.log(data, "data");
     
                 // if (uvuId === data.uvuId && uvupassword === data.password && uvuType === data.Type){
-                    
-                //     navigate('/UVUadmin')
-                     e.preventDefault()
-
-                    
+                    //navigate('/UVUadmin')
+                    // e.preventDefault();
                 // }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
             })
         }
@@ -73,14 +71,14 @@ const UVUlogin = () =>{
                             </select>
                         </div>
                         <div>
-                            <button className='text-2xl italic font-serif bg-[#06110d] text-[white] cursor-pointer w-full mx-0 my-2 px-5 py-3.5 border-[none] hover:bg-green-950 active:bg-green-900 focus:outline-none focus:ring focus:ring-green-700 rounded-full'
+                            <button className='text-xl italic font-serif bg-[#06110d] text-[white] cursor-pointer ml-20 px-16 py-4 border-[none] hover:bg-green-950 active:bg-green-900 focus:outline-none focus:ring focus:ring-green-700 rounded-full'
                              type="submit">
                                 Login
                             </button>
-                            {/* <button className='text-2xl italic font-serif bg-[#06110d] text-[white] cursor-pointer w-full mx-0 my-2 px-5 py-3.5 border-[none] hover:bg-green-950 active:bg-green-900 focus:outline-none focus:ring focus:ring-green-700 rounded-full'
+                            { <button className='text-xl italic font-serif bg-[#06110d] text-[white] cursor-pointer m-4 px-16 py-4 border-[none] hover:bg-green-950 active:bg-green-900 focus:outline-none focus:ring focus:ring-green-700 rounded-full'
                              type="submit">
                                 Sign up
-                            </button> */}
+                            </button> }
                         </div>
                     </div>
                 </form>
