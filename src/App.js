@@ -16,16 +16,18 @@ import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 // Create/delete/view courses & log 
 // Each one will have a card that can be edited and links to the db  is Teacher, TA, and Student
 function App () {
-  return (                      
-    <Router>
-      <Routes>
-        <Route exact path="/" element={<UVUlogin/>}/>
-        <Route path="/UVUadmin" element={<UVUadmin/>}/>
-        <Route path="/Teacher"  element={<Teacher/>}/>
-        <Route path="/Student" element= {<Student/>}/>
-      </Routes>
-      
-    </Router>
+  return (  
+    <div className="h-screen flex flex-col">
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<UVUlogin/>}/>
+          <Route path="/UVUadmin" element={<UVUadmin/>}/>
+          <Route path="/Teacher"  element={<Teacher/>}/>
+          <Route path="/Student" element= {<Student/>}/>
+        </Routes>
+      </Router>
+    </div>                    
+    
     
   );
 }
