@@ -41,11 +41,7 @@ const userlogins = new mongoose.Schema({
         enum: ['admin', 'teacher', 'ta', 'student'],
         required: true
     },
-    organizationId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Organization',
-        required: true
-    }
+    
 
 })
 

@@ -2,7 +2,7 @@ import * as React from "react";
 import UVUlogin from "./compnents/UVU/UVUlogin";
 import UVUadmin from "./compnents/UVU/UVUadmin";
 import Teacher from "./compnents/UVU/Teacher";
-import Student from "./compnents/UVU/Student";
+import Student from "./compnents//UVU/Student";
 import TA from "./compnents/UVU/TA";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
@@ -21,7 +21,7 @@ function App () {
     <div className="h-screen flex flex-col">
       <Router>
         <Routes>
-          {/* <Route exact path="/" element={<UVUlogin/>}/> */}
+          <Route exact path="/" element={<UVUlogin/>}/>
           <Route path="/UVUadmin" element={<UVUadmin/>}/>
           <Route path="/TA" element={<TA/>}/>
           <Route path="/Teacher"  element={<Teacher/>}/>
