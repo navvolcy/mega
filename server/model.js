@@ -26,7 +26,7 @@ const users = new mongoose.Schema({
         required: true
 
     },
-    username: {
+    name_id: {
         type: String,
         required: true,
         unique: true
