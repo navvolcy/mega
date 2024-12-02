@@ -18,7 +18,7 @@ const courses = new mongoose.Schema({
     display: String
 })
 
-const userlogins = new mongoose.Schema({
+const users = new mongoose.Schema({
     _id: Number,
     unverstiy: {
         type: String,
@@ -51,9 +51,9 @@ const userlogins = new mongoose.Schema({
 // Creating model objects  
 const LOGS = mongoose.model('logs', logs);
 const COURSES = mongoose.model('courses', courses);
-const LOGINs = mongoose.model('userlogins', userlogins)
+const USERS = mongoose.model('users', users)
  
 // Exporting our model objects
 module.exports = {
-    LOGS, COURSES, LOGINs
+    LOGS, COURSES, USERS
 }

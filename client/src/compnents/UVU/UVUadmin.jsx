@@ -33,7 +33,7 @@ const UVUadmin = () =>{
                             <select className="font-thin text-2xl italic font-serif  mx-16 my-5 ">
                                 <option>Account type</option>
                                 <option value={"Teacher"}>Teacher</option>
-                                <option value={"TA"}>TA</option>
+                                
                                 <option value={"Student"}>Student</option>
                             </select>
                         </div>
