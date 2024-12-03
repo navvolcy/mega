@@ -70,7 +70,7 @@ main()
     const nameId = req.params.nameId;
     const userpassword = req.params.password;
     const role = users
-      .filter(user => user._doc.name_id === nameId && user._doc.password === userpassword)[0].role;
+      .filter(user => user._doc.username=== nameId && user._doc.password === userpassword)[0].role;
     res.send({role});
   });
 

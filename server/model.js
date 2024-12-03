@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
  
 // Course Modal Schema
 const logs = new mongoose.Schema({
-    _id: Number,
+    _id: mongoose.Schema.ObjectId,
     courseId: String,
     uvuId: String,
     date: String,
@@ -13,20 +13,20 @@ const logs = new mongoose.Schema({
 })
  
 const courses = new mongoose.Schema({
-    _id: Number,
+    _id: mongoose.Schema.ObjectId,
     id: String,
     display: String
 })
 
 const users = new mongoose.Schema({
-    _id: Number,
+    _id: mongoose.Schema.ObjectId,
     unverstiy: {
         type: String,
-        enum:['UVU', 'UofU'],
+        enum:['uvu', 'uofu'],
         required: true
 
     },
-    name_id: {
+    username: {
         type: String,
         required: true,
         unique: true
