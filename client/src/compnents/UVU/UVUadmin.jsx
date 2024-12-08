@@ -31,7 +31,7 @@ const UVUadmin = () =>{
    
      const location = useLocation();
      const displayedCourses = location.state.courses.map((course) => {  
-        return course.display;
+        return [ course.id,course.display];
      })
      console.log("new location: ", displayedCourses)
      
@@ -43,6 +43,7 @@ const UVUadmin = () =>{
 
     };
 
+    //handle for uvuID#
     const handleSearch = (event) => {
         const inputValue = event.target.value;
     const numericValue = inputValue.replace(/[^0-9]/g, ''); // Remove non-numeric characters
@@ -97,7 +98,7 @@ const UVUadmin = () =>{
 
                          <div>
                              {showCourse && <Course setShowCourse={setShowCourse} setShowProfile={setShowProfile}/> }
-                             {showView && <View displayedCourses = {displayedCourses} setShowProfile={setShowProfile}setShowView={setShowView}/>  }
+                             {showView && <View displayedCourses = {displayedCourses} setShowProfile={setShowProfile}setShowView={setShowView} setSearchId={searchId}/> }
                              {showProfile && <Profile setShowProfile={setShowProfile}  setShowCourse={setShowCourse}  setShowView ={setShowView} userName={userName}  userRole={userRole}/>}
                         </div> 
                         

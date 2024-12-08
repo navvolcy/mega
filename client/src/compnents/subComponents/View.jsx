@@ -1,19 +1,54 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useState } from "react";
 
 
 
-const View = ({displayedCourses, setShowView, setShowProfile}) => {
-    //fetching courses for drop down
+const View = ({displayedCourses, setShowView, setShowProfile, setSearchId}) => {
+
+    const [selectedOption, setSelectedOption] = useState('');
+    const [date, setDate] = useState("");
+    const [text, setText] = useState("");
+    
+   
+
+    
+    const handleOptionChange = (event) => {
+        setSelectedOption(event.target.value);
+        
+   
+    };
+
     const options = displayedCourses;
+   
+ 
 
     const handleView = () =>{
         setShowProfile(true)
         setShowView(false);
     }
+    
+   
 
+    useEffect(() => {
+        if(selectedOption){
+            console.log("course id: ", selectedOption)
+            fetch(`http://localhost:3000/api/view/${setSearchId}/${selectedOption}`)
+            .then(response=>{
+                if(!response.ok){
+                    throw new Error("network response for veiw logs NOT WORKING!")
+                }
+                 return response.json()
+            }).then(data =>{ 
+                setDate(data.date)
+                setText(data.text)
+                
+            })
+             
+            
+        }
+    },[selectedOption]);
 
-
-
+    
 
     
     return(
@@ -29,18 +64,34 @@ const View = ({displayedCourses, setShowView, setShowProfile}) => {
                 </button>
             </div>
             <div className=" flex flex-col justify-center items-center text-xl mb-2">
-                <select id="course" className=" border border-black m-2 rounded-full italic font-serif" type="text" placeholder=" Course " maxLength={8}>
+                <select id="course" className=" border border-black m-2 rounded-full italic font-serif" 
+                type="text"
+                 placeholder=" Course " 
+                 maxLength={8}
+                 onChange={handleOptionChange}>
                 <option value={""} id="options">Choose Courses</option>
                     {options.map((option,index)=>(
-                    <option key={index} value={option}>
-                        {option}
+                    <option key={index} value={option[0]} >
+                        {option[1]}
                     </option>
                     ))}
                 </select>
-                <ul id="unOrdered">
-
-                </ul>
             </div>
+            
+            <ul id="unOrdered" className="m-8">
+                <li>
+                    
+                    {date}
+                    
+                </li>
+                <li>
+                    <pre>
+                        <p> {text}</p>
+                    </pre>
+                </li>
+                
+            </ul>
+            
 
             </div>
 

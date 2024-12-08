@@ -67,8 +67,18 @@ main()
 
 
   //get courses for selected drop down
-  app.get("/api/view/:courses", (req, res) =>{
-   res.send(courses)
+  app.get("/api/view/:searchId/:courses", (req, res) =>{
+    console.log("reached view call server side")
+    const userNumID = req.params.searchId;
+    const userCourses= req.params.courses;
+    const logs = dbcourses
+          .filter( log => log._doc.uvuId === userNumID && log._doc.courseId === userCourses)
+          .map(log =>{
+            return {date:log.date, text:log.text}
+            
+          })
+          console.log("view",{date:logs[0].date, text: logs[0].text} )
+   res.send({date:logs[0].date, text: logs[0].text} )
   })
 
   //loging in 
@@ -83,7 +93,6 @@ main()
 
 
   //search uvu id 
-
   app.get ("/api/login/:searchId", (req, res)=> {
     console.log("Search request reached!")
     const search = req.params.searchId;

@@ -8,7 +8,7 @@ import UVU from "../assets/UVUMascotBlack-0019.png";
 
 const Profile = ({setShowCourse, setShowProfile, setShowView, userName, userRole}) =>{
     
-    console.log(userName)
+    
     const handleCourse = () =>{
         setShowProfile(false)
         setShowCourse(true);
