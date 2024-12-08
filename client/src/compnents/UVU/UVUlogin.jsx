@@ -34,7 +34,7 @@ const UVUlogin = (e) => {
       .then(data =>{
         console.log("reached")
         console.log ("data: ", data);
-        navigate(`/${data.role}`);
+        navigate(`/${data.role}`,{state:{courses:data.courses}});
         e.preventDefault(); 
       }).catch(error => {
         // Handle errors

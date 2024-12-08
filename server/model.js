@@ -41,6 +41,16 @@ const users = new mongoose.Schema({
         enum: ['admin', 'teacher', 'ta', 'student'],
         required: true
     },
+    firstname: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    lastname:{
+        type: String,
+        required: true,
+        unique:true
+    }
     
 
 })

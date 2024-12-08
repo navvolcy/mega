@@ -65,14 +65,42 @@ main()
   .catch((err)=> console.log("not connected", err));
 
 
+
+  //get courses for selected drop down
+  app.get("/api/view/:courses", (req, res) =>{
+   res.send(courses)
+  })
+
+  //loging in 
   app.get("/api/login/:nameId/:password", (req, res)=> {
     console.log("get request reached")
     const nameId = req.params.nameId;
     const userpassword = req.params.password;
     const role = users
       .filter(user => user._doc.username=== nameId && user._doc.password === userpassword)[0].role;
-    res.send({role});
+    res.send({role, courses});
   });
+
+
+  //search uvu id 
+
+  app.get ("/api/login/:searchId", (req, res)=> {
+    console.log("Search request reached!")
+    const search = req.params.searchId;
+    const userCardInfo = users 
+       .filter(user=> user._doc.username === search)
+       .map(user => {
+        return {
+          name:user.firstname, 
+          role:user.role
+        }})
+       console.log("Search: ", userCardInfo)
+        //setting propeity on object
+
+    res.send({name:userCardInfo[0].name, role:userCardInfo[0].role});
+   
+  })
+
 
 
 
