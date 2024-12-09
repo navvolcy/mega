@@ -70,8 +70,7 @@ const Teacher =() =>{
     }
 
     const data = {
-        uvuId: setSearchId,
-        firstname: userName,
+        uvuId: searchId,
         password: password,
         role: userRole,
         firstname: userName,

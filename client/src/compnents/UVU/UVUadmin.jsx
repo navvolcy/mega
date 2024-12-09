@@ -49,8 +49,8 @@ const UVUadmin = () =>{
 
     //handle for uvuID#
     const handleSearch = (event) => {
-        const inputValue = event.target.value;
-        const numericValue = inputValue.replace(/[^0-9]/g, ''); // Remove non-numeric characters
+    const inputValue = event.target.value;
+    const numericValue = inputValue.replace(/[^0-9]/g, ''); // Remove non-numeric characters
     setSearchId(numericValue);
     }
 
@@ -82,7 +82,6 @@ const UVUadmin = () =>{
 
     const data = {
         uvuId: searchId,
-        firstname: userName,
         password: password,
         role: userRole,
         firstname: userName,
@@ -95,7 +94,7 @@ const UVUadmin = () =>{
         e.preventDefault()
 
         try{
-            axios.post(`http://localhost:3000/api/createLog`, data)
+            axios.post(`http://localhost:3000/api/users`, data)
             .then((response)=>{
                 console.log("created: ", response)
             })
