@@ -4,6 +4,7 @@ import Course from "../subComponents/Course";
 import { useState } from "react";
 import View from "../subComponents/View";
 import { useLocation } from "react-router-dom";
+import axios from "axios";
 
 // Admin can create and see all courses and all student logs. Admin can create a teacher, TA, or student. Admin is "god" of the system.
 // Create/delet/view  Teachers and students -> 
@@ -27,7 +28,10 @@ const UVUadmin = () =>{
 
     const [searchId, setSearchId ]= useState("");
     const [userName, setUserName] = useState("");
+    const [userLname, setUserLname]= useState("");
+    const [password, setPassword] = useState("");
     const [userRole, setUserRole] = useState("");
+    const [uni, setUni] = useState("");
    
      const location = useLocation();
      const displayedCourses = location.state.courses.map((course) => {  
@@ -46,8 +50,58 @@ const UVUadmin = () =>{
     //handle for uvuID#
     const handleSearch = (event) => {
         const inputValue = event.target.value;
-    const numericValue = inputValue.replace(/[^0-9]/g, ''); // Remove non-numeric characters
+        const numericValue = inputValue.replace(/[^0-9]/g, ''); // Remove non-numeric characters
     setSearchId(numericValue);
+    }
+
+    const handleUserName = (event) =>{
+        const inputValue = event.target.value;
+        setUserName(inputValue)
+    }
+
+    const handleUserLastName = (event) =>{
+        const inputValue = event.target.value;
+        setUserLname(inputValue)
+    }
+
+    const handlePassWord = (event) =>{
+        const inputValue = event.target.value;
+        const numericValue = inputValue.replace(/[^0-9]/g, ''); // Remove non-numeric characters
+        setPassword(numericValue)
+    }
+
+    const handleRole = (event) =>{
+        const inputValue = event.target.value;
+        setUserRole(inputValue);
+    }
+
+    const handleUni = (event) =>{
+        const inputValue = event.target.value;
+        setUni(inputValue);
+    }
+
+    const data = {
+        uvuId: searchId,
+        firstname: userName,
+        password: password,
+        role: userRole,
+        firstname: userName,
+        lastName: userLname,
+        university: uni
+    }
+
+
+    const createUser = (e) => {
+        e.preventDefault()
+
+        try{
+            axios.post(`http://localhost:3000/api/createLog`, data)
+            .then((response)=>{
+                console.log("created: ", response)
+            })
+        }catch(error){
+            console.error("Error", error)
+        }
     }
 
     const fetchSearch = async(e) =>{
@@ -97,7 +151,7 @@ const UVUadmin = () =>{
                         </div>
 
                          <div>
-                             {showCourse && <Course setShowCourse={setShowCourse} setShowProfile={setShowProfile}/> }
+                             {showCourse && <Course setShowCourse={setShowCourse} setShowProfile={setShowProfile} displayedCourses = {displayedCourses} setSearchId={searchId}/> }
                              {showView && <View displayedCourses = {displayedCourses} setShowProfile={setShowProfile}setShowView={setShowView} setSearchId={searchId}/> }
                              {showProfile && <Profile setShowProfile={setShowProfile}  setShowCourse={setShowCourse}  setShowView ={setShowView} userName={userName}  userRole={userRole}/>}
                         </div> 
@@ -111,19 +165,26 @@ const UVUadmin = () =>{
                     Create
                     </button>
                     {showForm && (
-                        <form>
-                            <div className=" flex flex-col justify-center items-center text-xl">
+                        
+                    <div className=" flex flex-col justify-center items-center text-xl">
                             
-                            <input className=" border border-black m-2 rounded-full italic font-serif" type="text" placeholder=" UVU ID#" maxLength={8}/>
-                            <input className=" border border-black m-2 rounded-full italic font-serif" type="text" placeholder=" First Name" />
-                            <input className=" border border-black m-2 rounded-full italic font-serif" type="text" placeholder=" Last Name" />
-                            <input className=" border border-black m-2 rounded-full italic font-serif" type="text" placeholder=" Password" maxLength={8} />
-                            <input className=" border border-black m-2 rounded-full italic font-serif" type="text" placeholder=" Title" />
-                            <button className=" italic font-serif bg-[#06110d] text-[white] cursor-pointer ml-4 px-4 py-1 border-[none] hover:bg-green-950
-                         active:bg-green-900 focus:outline-none focus:ring focus:ring-green-700 rounded-full" type="submit">Submit</button>
-                            </div>
+                        <input className=" border border-black m-2 rounded-full italic font-serif" type="text" placeholder=" UVU ID#" maxLength={8} value={searchId} onChange={handleSearch}/>
+
+                        <input className=" border border-black m-2 rounded-full italic font-serif" type="text" placeholder=" Password" maxLength={8} value={password} onChange={handlePassWord}/>
+                        <input className=" border border-black m-2 rounded-full italic font-serif" type="text" placeholder=" Title"  value={userRole} onChange={handleRole}/>
+                        <input className=" border border-black m-2 rounded-full italic font-serif" type="text" placeholder=" First Name" value={userName}  onChange={handleUserName}/>
+                        <input className=" border border-black m-2 rounded-full italic font-serif" type="text" placeholder=" Last Name" value={userLname}  onChange={handleUserLastName}/>
+                        <input className=" border border-black m-2 rounded-full italic font-serif" type="text" placeholder="Universtiy"  value={uni} onChange={handleUni}/>
+                        <button className=" italic font-serif bg-[#06110d] text-[white] cursor-pointer ml-4 px-4 py-1 border-[none] hover:bg-green-950
+                                 active:bg-green-900 focus:outline-none focus:ring
+                                 focus:ring-green-700 rounded-full" 
+                                    type="submit"
+                                    onClick={createUser}
+                                >Submit
+                      </button>
+                        </div>
                             
-                        </form>
+                        
                     )}
                     </div>
                 

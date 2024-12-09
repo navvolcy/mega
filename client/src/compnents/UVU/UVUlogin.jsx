@@ -1,4 +1,4 @@
-import React, {useState } from "react";
+import React, {useState,useEffect } from "react";
 import UVU from "../assets/UVUMascotBlack-0019.png";
 import { useNavigate } from "react-router-dom";
 
@@ -19,7 +19,19 @@ const UVUlogin = (e) => {
     const inputValue = event.target.value;
     const numericValue = inputValue.replace(/[^0-9]/g, ''); // Remove non-numeric characters
     setUvuId(numericValue);
+
   }
+
+  
+  const handlePassWord = (event) =>{
+    const inputValue = event.target.value;
+    // if(inputValue !== "willy" ){
+    //   const numericValue = inputValue.replace(/[^0-9]/g, ''); // Remove non-numeric characters
+    // setUvupassword(inputValue)
+    // }
+    
+    setUvupassword(inputValue)
+}
   
   
   const fetchLogin = async(e) => { 
@@ -27,13 +39,19 @@ const UVUlogin = (e) => {
       fetch(`http://localhost:3000/api/login/${uvuId}/${uvupassword}`)
       .then(response=> {
         if(!response.ok){
-          throw new Error("network resposnse was not ok");
+          new AbortController()
+          throw new Error("network resposnse was not ok, BAD LOGIN");
         }
         return response.json();
       })
       .then(data =>{
         console.log("reached")
         console.log ("data: ", data);
+        if(data.role  === "student"){
+          navigate(`/${data.role}`,{state:{courses:data.courses}});
+          
+        e.preventDefault(); 
+        }
         navigate(`/${data.role}`,{state:{courses:data.courses}});
         e.preventDefault(); 
       }).catch(error => {
@@ -42,12 +60,19 @@ const UVUlogin = (e) => {
       })
     }
 
+   
+   
+
+
+
+
 
       
         
 
   return (
     <div className="flex-1 ">
+     
       <img src={UVU} alt="uvuLogo" />
 
       <div className="flex flex-col justify-center items-center p-4 ">
@@ -76,9 +101,7 @@ const UVUlogin = (e) => {
                 placeholder="12345678"
                 maxLength={8}
                 value={uvupassword}
-                onChange={(e) => {
-                  setUvupassword(e.target.value);
-                }}
+                onChange={handlePassWord}
               />
             </div>
           </div>
@@ -91,6 +114,9 @@ const UVUlogin = (e) => {
             className="mb-4 p-2 bg-black text-white text-2xl italic font-serif rounded-full w-28 hover:bg-green-950 active:bg-green-900 focus:outline-none focus:ring focus:ring-green-700">
               Login
             </button>
+              <div>
+               
+              </div>
           </div>
         </form>
       </div>
